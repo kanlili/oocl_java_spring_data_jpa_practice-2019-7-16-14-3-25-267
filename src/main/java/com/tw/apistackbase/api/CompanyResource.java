@@ -24,4 +24,9 @@ public class CompanyResource {
     {
       return companyRepository.save(company);
     }
+    @DeleteMapping (produces = {"application/json"})
+    public  void deiete(@RequestBody Company company){
+         companyRepository.delete(company);
+    }
+  
 }
