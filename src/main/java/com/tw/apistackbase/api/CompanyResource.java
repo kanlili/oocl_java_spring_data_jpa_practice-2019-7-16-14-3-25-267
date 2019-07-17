@@ -28,5 +28,11 @@ public class CompanyResource {
     public  void deiete(@RequestBody Company company){
          companyRepository.delete(company);
     }
-  
+//    @PostMapping ("/ASDASDAD ASDSA")
+//    public  Company postComany(@RequestBody Company company){
+//        return  companyRepository.save(company);
+//    }
+
+
+
 }

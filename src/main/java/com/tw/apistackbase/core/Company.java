@@ -1,17 +1,21 @@
 package com.tw.apistackbase.core;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import org.springframework.context.annotation.Lazy;
+
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Company {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
+    @Column
     private String name;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "profile")
+    private  Profile profile;
+
 
     public Long getId() {
         return id;
@@ -29,10 +33,25 @@ public class Company {
         this.name = name;
     }
 
+    public Profile getProfile() {
+        return profile;
+    }
+
+    public void setProfile(Profile profile) {
+        this.profile = profile;
+    }
+
     public Company() {
     }
 
-    public Company(String name) {
-        this.name = name;
-    }
+//    public Company(Long id, Profile profile, String name) {
+//        this.id = id;
+//        this.profile = profile;
+//        this.name = name;
+//    }
+//
+//    public Company(String name) {
+//        this.name = name;
+//    }
+
 }
